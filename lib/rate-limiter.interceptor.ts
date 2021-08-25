@@ -147,6 +147,9 @@ export class RateLimiterInterceptor implements NestInterceptor {
 	}
 
 	async intercept(context: ExecutionContext, next: CallHandler): Promise<any> {
+		// by pass not graphql request
+		if (context['contextType'] !== 'graphql') return next.handle()
+
 		let points: number = this.specificOptions?.points || this.options.points
 		let pointsConsumed: number = this.specificOptions?.pointsConsumed || this.options.pointsConsumed
 
@@ -202,6 +205,7 @@ export class RateLimiterInterceptor implements NestInterceptor {
 					this.setResponseHeaders(response, points, rateLimiterResponse)
 			}
 		} catch (rateLimiterResponse) {
+			Logger.log(`Blocked ${JSON.stringify({ key, points, pointsConsumed })}`)
 			response.header('Retry-After', Math.ceil(rateLimiterResponse.msBeforeNext / 1000))
 			if (typeof this.specificOptions?.customResponseSchema === 'function' || typeof this.options.customResponseSchema === 'function') {
 				var errorBody = this.specificOptions?.customResponseSchema || this.options.customResponseSchema
