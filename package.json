@@ -1,10 +1,10 @@
 {
-  "name": "nestjs-rate-limiter",
+  "name": "@jojoee/nestjs-rate-limiter",
   "version": "2.7.4",
   "description": "Highly configurable rate limiter library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ozkanonur/nestjs-rate-limiter.git"
+    "url": "git+https://github.com/jojoee/nestjs-rate-limiter.git"
   },
   "keywords": [
     "nestjs",
@@ -14,16 +14,12 @@
     "security"
   ],
   "main": "dist/index.js",
-  "author": "Ryan Dowling <ryan@ryandowling.me>",
-  "contributors": [
-    "Ryan Dowling <ryan@ryandowling.me>",
-    "Onur Ozkan <onurozkan.dev@outlook.com>"
-  ],
+  "author": "Nathachai Thongniran <inid3a@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ozkanonur/nestjs-rate-limiter/issues"
+    "url": "https://github.com/jojoee/nestjs-rate-limiter/issues"
   },
-  "homepage": "https://github.com/ozkanonur/nestjs-rate-limiter#readme",
+  "homepage": "https://github.com/jojoee/nestjs-rate-limiter#readme",
   "publishConfig": {
     "access": "public"
   },
