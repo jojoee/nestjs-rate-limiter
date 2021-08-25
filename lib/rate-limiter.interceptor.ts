@@ -173,15 +173,10 @@ export class RateLimiterInterceptor implements NestInterceptor {
 	}
 
 	private httpHandler(context: ExecutionContext) {
-		if (this.options.for === 'ExpressGraphql') {
+		if (context['contextType'] === 'graphql') {
 			return {
 				req: context.getArgByIndex(2).req,
 				res: context.getArgByIndex(2).req.res
-			}
-		} else if (this.options.for === 'FastifyGraphql') {
-			return {
-				req: context.getArgByIndex(2).req,
-				res: context.getArgByIndex(2).res
 			}
 		} else {
 			return {
