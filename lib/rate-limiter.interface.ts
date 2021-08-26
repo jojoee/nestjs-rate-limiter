@@ -28,6 +28,7 @@ export interface RateLimiterOptions {
 	maxQueueSize?: number
 	omitResponseHeaders?: boolean
 	errorMessage?: string
+	enable?: boolean
 	logger?: boolean
 	customResponseSchema?: (rateLimiterResponse: RateLimiterRes) => {}
 }

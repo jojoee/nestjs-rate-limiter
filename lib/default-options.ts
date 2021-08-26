@@ -27,5 +27,6 @@ export const defaultRateLimiterOptions: RateLimiterOptions = {
 	omitResponseHeaders: false,
 	errorMessage: 'Rate limit exceeded',
 	customResponseSchema: undefined,
+	enable: true,
 	logger: true
 }

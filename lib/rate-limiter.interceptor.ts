@@ -147,6 +147,9 @@ export class RateLimiterInterceptor implements NestInterceptor {
 	}
 
 	async intercept(context: ExecutionContext, next: CallHandler): Promise<any> {
+		// by pass if it not enabled
+		if (!this.options.enable) return next.handle()
+
 		// by pass not graphql request
 		if (context['contextType'] !== 'graphql') return next.handle()
 
